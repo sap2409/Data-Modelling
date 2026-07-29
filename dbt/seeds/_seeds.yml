@@ -1,0 +1,38 @@
+version: 2
+
+seeds:
+  - name: products
+    description: Product master seed
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+  - name: suppliers
+    description: Supplier master seed
+    columns:
+      - name: supplier_id
+        tests: [not_null, unique]
+  - name: customers
+    description: Customer master seed
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+  - name: warehouses
+    description: Warehouse / DC master seed
+    columns:
+      - name: warehouse_id
+        tests: [not_null, unique]
+  - name: carriers
+    description: Carrier master seed
+    columns:
+      - name: carrier_id
+        tests: [not_null, unique]
+  - name: purchase_order_lines
+    description: Purchase order line transactions
+  - name: inventory_snapshots
+    description: Periodic inventory positions
+  - name: inventory_movements
+    description: Inventory movement ledger
+  - name: sales_order_lines
+    description: Sales order line transactions
+  - name: shipments
+    description: Shipment headers

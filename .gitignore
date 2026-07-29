@@ -5,13 +5,19 @@
 .vscode/
 *.log
 
-# Python / dbt (if added later)
+# Python / dbt
 .venv/
 __pycache__/
-.target/
-dbt_packages/
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/data/*.duckdb
+dbt/data/*.duckdb.wal
 logs/
 
 # Env
 .env
 .env.*
+
+# dbt local
+dbt/.user.yml

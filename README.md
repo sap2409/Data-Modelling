@@ -6,6 +6,7 @@ Dimensional data model and SQL assets for a supply chain analytics warehouse cov
 
 | Area | Contents |
 |------|----------|
+| **dbt project** | Preferred transform layer — seeds → staging → dims/facts → marts |
 | Architecture | Medallion layers (staging → warehouse), star schemas, grain definitions |
 | DDL | Dimension and fact table definitions (PostgreSQL-compatible) |
 | Staging | Source-aligned landing tables for operational systems |
@@ -32,15 +33,29 @@ Dimensional data model and SQL assets for a supply chain analytics warehouse cov
 ## Project layout
 
 ```
+dbt/                  dbt project (recommended entry point)
 docs/                 Architecture, data dictionary, business questions
-sql/ddl/              CREATE SCHEMA / TABLE scripts
+sql/ddl/              CREATE SCHEMA / TABLE scripts (plain-SQL reference)
 sql/etl/              Staging → warehouse load patterns
 sql/analytics/        Reporting / KPI queries
-sample_data/          CSV seed files
+sample_data/          CSV seed files (mirrored in dbt/seeds)
 diagrams/             Mermaid ER / lineage sketches
 ```
 
-## Quick start (PostgreSQL)
+## Quick start (dbt + DuckDB)
+
+No database server required:
+
+```bash
+cd dbt
+pip install 'dbt-duckdb>=1.8'
+dbt deps --profiles-dir .
+dbt build --profiles-dir .
+```
+
+See [dbt/README.md](dbt/README.md) for Postgres target and command reference.
+
+## Quick start (plain PostgreSQL SQL)
 
 ```bash
 # 1. Create database

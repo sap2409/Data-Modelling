@@ -1,0 +1,23 @@
+# Local dbt profiles for this project.
+# Usage: export DBT_PROFILES_DIR="$(pwd)/dbt"   # from repo root
+#    or: dbt run --profiles-dir dbt
+#
+# Prefer committing this file for demo/dev. Override secrets via env vars for postgres.
+
+supply_chain_dwh:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "data/supply_chain_dwh.duckdb"
+      threads: 4
+
+    postgres:
+      type: postgres
+      host: "{{ env_var('DBT_HOST', 'localhost') }}"
+      port: "{{ env_var('DBT_PORT', '5432') | int }}"
+      user: "{{ env_var('DBT_USER', 'postgres') }}"
+      password: "{{ env_var('DBT_PASSWORD', 'postgres') }}"
+      dbname: "{{ env_var('DBT_DBNAME', 'supply_chain_dwh') }}"
+      schema: public
+      threads: 4

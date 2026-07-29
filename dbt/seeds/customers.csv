@@ -1,0 +1,6 @@
+customer_id,customer_name,customer_segment,country_code,region,city,channel,is_active
+C01,AutoBuild Motors,wholesale,US,North America,Detroit,direct,true
+C02,EuroPlant Assembly,wholesale,DE,Europe,Munich,direct,true
+C03,QuickFix Retail Chain,retail,US,North America,Dallas,retail,true
+C04,ShopOnline Parts,ecommerce,GB,Europe,London,ecommerce,true
+C05,Pacific Manufacturing,wholesale,JP,Asia,Osaka,direct,true
