@@ -26,6 +26,17 @@ dbt build --profiles-dir . --target postgres
 
 Ensure the database exists first (`createdb supply_chain_dwh`).
 
+## Databricks
+
+```bash
+pip install -r requirements-databricks.txt
+# set DATABRICKS_HOST, DATABRICKS_HTTP_PATH, DATABRICKS_TOKEN
+dbt debug --profiles-dir . --target databricks
+dbt build --profiles-dir . --target databricks
+```
+
+Full walkthrough: [docs/databricks-setup.md](../docs/databricks-setup.md).
+
 ## Project layout
 
 ```
@@ -38,7 +49,7 @@ dbt/
       facts/             Additive facts (tables)
     marts/               KPI-ready marts (analytics schema)
   macros/                Date spine + portable SQL helpers
-  profiles.yml           Local DuckDB + Postgres profiles
+  profiles.yml           DuckDB + Postgres + Databricks profiles
 ```
 
 ## Model DAG (simplified)

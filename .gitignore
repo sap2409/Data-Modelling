@@ -18,6 +18,9 @@ logs/
 # Env
 .env
 .env.*
+!.env.databricks.example
+!dbt/.env.databricks.example
+dbt/.env.databricks.local
 
 # dbt local
 dbt/.user.yml

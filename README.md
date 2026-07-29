@@ -53,7 +53,9 @@ dbt deps --profiles-dir .
 dbt build --profiles-dir .
 ```
 
-See [dbt/README.md](dbt/README.md) for Postgres target and command reference.
+See [dbt/README.md](dbt/README.md) for Postgres / Databricks targets.
+
+**Databricks:** [docs/databricks-setup.md](docs/databricks-setup.md) — Unity Catalog schemas, SQL Warehouse profile, and `dbt build --target databricks`.
 
 ## Quick start (plain PostgreSQL SQL)
 
@@ -93,6 +95,7 @@ psql -d supply_chain_dwh -f sql/analytics/kpi_queries.sql
 - [Architecture](docs/architecture.md)
 - [Data dictionary](docs/data-dictionary.md)
 - [Business questions](docs/business-questions.md)
+- [Databricks setup](docs/databricks-setup.md)
 
 ## Design notes
 

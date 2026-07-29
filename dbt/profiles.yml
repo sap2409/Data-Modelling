@@ -15,3 +15,14 @@ supply_chain_dwh:
       dbname: "{{ env_var('DBT_DBNAME', 'supply_chain_dwh') }}"
       schema: public
       threads: 4
+
+    # Set DATABRICKS_HOST, DATABRICKS_HTTP_PATH, DATABRICKS_TOKEN before use.
+    # Optional: DATABRICKS_CATALOG (default supply_chain_dwh), DATABRICKS_SCHEMA (default warehouse)
+    databricks:
+      type: databricks
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      catalog: "{{ env_var('DATABRICKS_CATALOG', 'supply_chain_dwh') }}"
+      schema: "{{ env_var('DATABRICKS_SCHEMA', 'warehouse') }}"
+      threads: 4

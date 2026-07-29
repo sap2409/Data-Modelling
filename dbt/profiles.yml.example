@@ -1,8 +1,5 @@
-# Local dbt profiles for this project.
-# Usage: export DBT_PROFILES_DIR="$(pwd)/dbt"   # from repo root
-#    or: dbt run --profiles-dir dbt
-#
-# Prefer committing this file for demo/dev. Override secrets via env vars for postgres.
+# Copy values into environment variables or merge into ~/.dbt/profiles.yml.
+# Never commit real tokens.
 
 supply_chain_dwh:
   target: duckdb
@@ -21,3 +18,15 @@ supply_chain_dwh:
       dbname: "{{ env_var('DBT_DBNAME', 'supply_chain_dwh') }}"
       schema: public
       threads: 4
+
+    # Databricks SQL Warehouse + Unity Catalog
+    # Required env vars: DATABRICKS_HOST, DATABRICKS_HTTP_PATH, DATABRICKS_TOKEN
+    databricks:
+      type: databricks
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      catalog: "{{ env_var('DATABRICKS_CATALOG', 'supply_chain_dwh') }}"
+      schema: "{{ env_var('DATABRICKS_SCHEMA', 'warehouse') }}"
+      threads: 4
+      # Optional: auth_type: oauth  (instead of token)

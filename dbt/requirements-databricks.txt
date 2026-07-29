@@ -1,0 +1,3 @@
+# Optional: install Databricks adapter in a venv
+# Python 3.9–3.12 recommended
+dbt-databricks>=1.8,<1.11

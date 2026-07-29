@@ -22,6 +22,16 @@ select
     cast(quarter(full_date) as integer) as quarter_number,
     'Q' || cast(quarter(full_date) as varchar) as quarter_name,
     cast(year(full_date) as integer) as year_number,
+    {% elif target.type in ['databricks', 'spark'] %}
+    date_format(full_date, 'E') as day_name,
+    cast(day(full_date) as int) as day_of_month,
+    cast(dayofyear(full_date) as int) as day_of_year,
+    cast(weekofyear(full_date) as int) as week_of_year,
+    cast(month(full_date) as int) as month_number,
+    date_format(full_date, 'MMM') as month_name,
+    cast(quarter(full_date) as int) as quarter_number,
+    concat('Q', cast(quarter(full_date) as string)) as quarter_name,
+    cast(year(full_date) as int) as year_number,
     {% else %}
     to_char(full_date, 'Dy') as day_name,
     cast(extract(day from full_date) as integer) as day_of_month,
@@ -34,10 +44,13 @@ select
     cast(extract(year from full_date) as integer) as year_number,
     {% endif %}
     {{ date_part_dow('full_date') }} in (6, 7) as is_weekend,
-    full_date = cast(date_trunc('month', full_date) + interval '1 month' - interval '1 day' as date) as is_month_end,
+    {{ is_month_end_expr('full_date') }} as is_month_end,
     {% if target.type == 'duckdb' %}
     cast(year(full_date) as integer) as fiscal_year,
     cast(quarter(full_date) as integer) as fiscal_quarter
+    {% elif target.type in ['databricks', 'spark'] %}
+    cast(year(full_date) as int) as fiscal_year,
+    cast(quarter(full_date) as int) as fiscal_quarter
     {% else %}
     cast(extract(year from full_date) as integer) as fiscal_year,
     cast(extract(quarter from full_date) as integer) as fiscal_quarter

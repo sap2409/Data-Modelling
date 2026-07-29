@@ -50,9 +50,13 @@ Shared across facts so KPIs can be combined without remapping:
 
 ## Target platform
 
-DDL is **PostgreSQL 14+**. Porting notes:
+- **Local / demo:** DuckDB via dbt (`dbt build`, default profile)
+- **Reference SQL:** PostgreSQL 14+ under `sql/`
+- **Cloud scale:** Databricks SQL + Unity Catalog — see [databricks-setup.md](databricks-setup.md)
 
-- Snowflake: replace `SERIAL`/`BIGSERIAL` with `IDENTITY`, `\copy` with `COPY INTO`
+Porting notes for other warehouses:
+
+- Snowflake: replace identity patterns, use `COPY INTO` instead of seeds at scale
 - BigQuery: use `INT64` / `NUMERIC`, partition facts by date
 - Redshift: `IDENTITY`, `DISTKEY`/`SORTKEY` on date + foreign keys
 
