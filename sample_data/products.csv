@@ -1,0 +1,9 @@
+product_id,sku,product_name,category,subcategory,brand,unit_of_measure,unit_cost,unit_price,is_active
+P1001,SKU-BOLT-M8,Hex Bolt M8x40,Hardware,Fasteners,FastenCo,EA,0.1200,0.3500,true
+P1002,SKU-NUT-M8,Hex Nut M8,Hardware,Fasteners,FastenCo,EA,0.0500,0.1500,true
+P1003,SKU-BRG-6205,Ball Bearing 6205,Components,Bearings,SpinTech,EA,4.5000,9.9900,true
+P1004,SKU-SEAL-40,Oil Seal 40mm,Components,Seals,SealPro,EA,1.2000,2.7500,true
+P1005,SKU-MOTOR-1KW,AC Motor 1kW,Powertrain,Motors,DriveMax,EA,85.0000,149.0000,true
+P1006,SKU-CABLE-10,Power Cable 10m,Electrical,Cables,VoltLine,EA,6.8000,14.5000,true
+P1007,SKU-FILTER-A,Air Filter Type A,Consumables,Filters,CleanAir,EA,3.1000,7.2500,true
+P1008,SKU-GREASE-1L,Industrial Grease 1L,Consumables,Lubricants,LubeMax,L,2.4000,5.9900,true

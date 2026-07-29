@@ -1,0 +1,26 @@
+# Local / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.log
+
+# Python / dbt
+.venv/
+__pycache__/
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/data/*.duckdb
+dbt/data/*.duckdb.wal
+logs/
+
+# Env
+.env
+.env.*
+!.env.databricks.example
+!dbt/.env.databricks.example
+dbt/.env.databricks.local
+
+# dbt local
+dbt/.user.yml

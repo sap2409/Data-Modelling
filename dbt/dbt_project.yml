@@ -1,0 +1,50 @@
+name: supply_chain_dwh
+version: 1.0.0
+config-version: 2
+
+profile: supply_chain_dwh
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+docs-paths: ["docs"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+require-dbt-version: [">=1.7.0", "<2.0.0"]
+
+models:
+  supply_chain_dwh:
+    +materialized: view
+    staging:
+      +schema: staging
+      +materialized: view
+    warehouse:
+      +schema: warehouse
+      dimensions:
+        +materialized: table
+        +tags: ["dimension"]
+      facts:
+        +materialized: table
+        +tags: ["fact"]
+    marts:
+      +schema: analytics
+      +materialized: table
+      +tags: ["mart"]
+
+seeds:
+  supply_chain_dwh:
+    +schema: staging
+    +quote_columns: false
+
+vars:
+  # Date spine bounds for dim_date
+  date_spine_start: "2025-01-01"
+  date_spine_end: "2027-12-31"

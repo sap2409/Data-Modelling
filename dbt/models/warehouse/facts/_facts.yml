@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: fact_purchase_order_line
+    description: One row per purchase order line
+    columns:
+      - name: po_line_key
+        tests: [not_null, unique]
+      - name: order_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: supplier_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_supplier')
+                field: supplier_key
+      - name: product_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_key
+  - name: fact_inventory_snapshot
+    description: Inventory position by product, warehouse, day
+    columns:
+      - name: inventory_snapshot_key
+        tests: [not_null, unique]
+      - name: snapshot_date_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+  - name: fact_inventory_movement
+    description: Stock movement events
+    columns:
+      - name: movement_key
+        tests: [not_null, unique]
+      - name: movement_id
+        tests: [not_null, unique]
+  - name: fact_sales_order_line
+    description: One row per sales order line
+    columns:
+      - name: so_line_key
+        tests: [not_null, unique]
+      - name: customer_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_key
+  - name: fact_shipment
+    description: One row per shipment with OTIF flags
+    columns:
+      - name: shipment_key
+        tests: [not_null, unique]
+      - name: carrier_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_carrier')
+                field: carrier_key

@@ -1,0 +1,6 @@
+carrier_id,carrier_name,carrier_mode,service_level,country_code,is_active
+CR01,SwiftRoad Freight,road,standard,US,true
+CR02,SkyBridge Air,air,express,US,true
+CR03,OceanLink Global,ocean,economy,NL,true
+CR04,EuroHaul Logistics,road,standard,DE,true
+CR05,ParcelExpress,parcel,express,GB,true

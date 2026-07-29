@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: mart_inventory_position
+    description: Inventory quantities and value by warehouse, product, and snapshot date
+  - name: mart_supplier_performance
+    description: Supplier receipt fill rate and on-time performance
+  - name: mart_order_fill_rate
+    description: Sales order fill rate by product and customer segment/channel
+  - name: mart_otif_by_carrier
+    description: On-time and OTIF metrics by carrier and lane region

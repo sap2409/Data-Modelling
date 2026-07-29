@@ -1,0 +1,6 @@
+supplier_id,supplier_name,supplier_type,country_code,region,city,payment_terms,lead_time_days,preferred_flag,is_active
+S01,MetalWorks GmbH,manufacturer,DE,Europe,Stuttgart,Net30,14,true,true
+S02,AsiaParts Trading,distributor,CN,Asia,Shenzhen,Net45,28,false,true
+S03,Nordic Bearings AB,manufacturer,SE,Europe,Gothenburg,Net30,10,true,true
+S04,Atlantic Logistics Supply,distributor,US,North America,Atlanta,Net15,7,false,true
+S05,SealPro Industries,manufacturer,US,North America,Cleveland,Net30,12,true,true
