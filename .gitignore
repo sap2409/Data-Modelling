@@ -1,0 +1,17 @@
+# Local / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.log
+
+# Python / dbt (if added later)
+.venv/
+__pycache__/
+.target/
+dbt_packages/
+logs/
+
+# Env
+.env
+.env.*

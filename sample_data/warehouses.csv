@@ -1,0 +1,5 @@
+warehouse_id,warehouse_name,warehouse_type,country_code,region,city,timezone,capacity_units,is_active
+WH01,Detroit DC,DC,US,North America,Detroit,America/Detroit,500000,true
+WH02,Rotterdam Hub,DC,NL,Europe,Rotterdam,Europe/Amsterdam,750000,true
+WH03,Shenzhen Plant Store,plant,CN,Asia,Shenzhen,Asia/Shanghai,200000,true
+WH04,Dallas Regional,DC,US,North America,Dallas,America/Chicago,350000,true

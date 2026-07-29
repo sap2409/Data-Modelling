@@ -1,0 +1,6 @@
+shipment_id,ship_date,promised_delivery_date,actual_delivery_date,customer_id,warehouse_id,carrier_id,status_code,so_id,package_count,total_weight_kg,freight_cost,currency_code
+SH7001,2026-01-25,2026-01-28,2026-01-27,C01,WH01,CR01,delivered,SO9001,4,120.500,185.00,USD
+SH7002,2026-01-28,2026-02-02,2026-02-01,C02,WH02,CR04,delivered,SO9002,1,18.200,95.50,EUR
+SH7003,2026-02-10,2026-02-14,2026-02-13,C03,WH04,CR01,delivered,SO9004,2,45.000,72.00,USD
+SH7004,2026-02-11,2026-02-15,2026-02-16,C03,WH04,CR01,delivered,SO9004,1,12.000,28.00,USD
+SH7005,2026-02-20,2026-02-25,2026-02-24,C04,WH01,CR05,delivered,SO9005,1,8.750,41.25,GBP
